@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MAUI_Journal_App.Pages.OpenedJournal"
+             Title="Viewing Journal 1">
+    <Grid RowDefinitions="*, 60" ColumnDefinitions="*, *">
+        <ListView BackgroundColor="#BBBBDD"
+                  Grid.Row="0" Grid.Column="0" 
+                  Grid.ColumnSpan="2"
+                  x:Name="lstEntries"
+                  >
+
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <Grid RowDefinitions="40, *, 30"
+                              ColumnDefinitions="*"
+                              Margin="10, 5, 10, 5"
+                              HeightRequest="200"
+                              >
+                            <Label Grid.Row="0" Grid.Column="0"
+                                   Grid.ColumnSpan="2"
+                                   Text="{Binding Title}"
+                                   VerticalTextAlignment="End"
+                                   Margin="0, 0, 0, 5"
+                                   FontSize="16"
+                                   FontAttributes="Bold"
+                                   />
+                            <Label Grid.Row="1" Grid.Column="0"
+                                   Grid.ColumnSpan="2"
+                                   Text="{Binding Entry}"
+                                   BackgroundColor="#AAAADD"
+                                   Padding="5"
+                                   />
+                            <HorizontalStackLayout Grid.Row="2"
+                                                   Grid.Column="0"
+                                                   Padding="5"
+                                                   Spacing="10">
+                                <Image Source="edit_button.png" />
+                                <Image Source="remove_button.png" />
+                            </HorizontalStackLayout>
+                            <Label Grid.Row="2" Grid.Column="1"
+                                   HorizontalTextAlignment="End"
+                                   Text="{Binding DateWritten}"/>
+                        </Grid>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+        <HorizontalStackLayout Grid.Row="1" Grid.Column="0" Margin="5">
+            <Image Source="add_button.png" HeightRequest="30" HorizontalOptions="Start"/>
+            <Label Text="Add New Entry..." FontSize="18" VerticalOptions="Center" Margin="5, 0, 0, 0"/>
+        </HorizontalStackLayout>
+
+        <HorizontalStackLayout Grid.Row="1" Grid.Column="1" Margin="5" HorizontalOptions="End">
+            <Button Text="Clear Journal" HeightRequest="10"/>
+            <Button Text="Delete Journal" HeightRequest="10"/>
+        </HorizontalStackLayout>
+    </Grid>
+</ContentPage>

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Shell
+    x:Class="MAUI_Journal_App.AppShell"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local="clr-namespace:MAUI_Journal_App"
+    xmlns:pages="clr-namespace:MAUI_Journal_App.Pages"
+    Shell.FlyoutBehavior="Disabled">
+
+    <TabBar>
+        <Tab Title="Current Journal">
+            <ShellContent ContentTemplate="{DataTemplate pages:OpenedJournal}"/>
+        </Tab>
+        <Tab Title="Journal List">
+            <ShellContent ContentTemplate="{DataTemplate pages:JournalList}"/>
+        </Tab>
+        <Tab Title="Settings and About">
+            <ShellContent ContentTemplate="{DataTemplate pages:SettingsAndAbout}"/>
+        </Tab>
+    </TabBar>
+
+</Shell>
