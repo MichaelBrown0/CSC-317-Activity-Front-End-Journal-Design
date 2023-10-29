@@ -2,8 +2,102 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="MAUI_Journal_App.Pages.JournalList"
-             Title="Journals">
+             Title="Journals"
+             BackgroundColor="Indigo">
+    
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
 
-    <!--Your code here-->
+        <Grid Grid.Row="0" BackgroundColor="White">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="30" />
+                <ColumnDefinition Width="30" />
+            </Grid.ColumnDefinitions>
+
+            <BoxView Grid.Column="0" 
+                     Color="White" />
+            <Label Text="Current Journal"
+                   TextColor="Purple"
+                   HorizontalOptions="Center"
+                   VerticalOptions="Center"/>
+            <BoxView Grid.Column="1" 
+                     Color="White" />
+            <Label Text="Journal List"
+                   TextColor="Purple"
+                   HorizontalOptions="Center"
+                   VerticalOptions="Center"/>
+            <BoxView Grid.Column="2"
+                     Color="White" />
+            <Label Text="Settings and About"
+                   TextColor="Purple"
+                   HorizontalOptions="Center"
+                   VerticalOptions="Center" />
+        </Grid>
+
+        <ListView Grid.Row="1" Grid.Column="0" ItemsSource="{x:Binding App.Journal.cs}"
+            Header="{Binding .}"
+            Footer="{Binding .}">
+            <ListView.HeaderTemplate>
+                <DataTemplate>
+                    <StackLayout BackgroundColor="DarkBlue">
+                    <Label Margin="0,0,40,0"
+                           Text="Entry Name"
+                           TextColor="White"
+                           FontSize="10" />
+                </StackLayout>
+                </DataTemplate>
+            </ListView.HeaderTemplate>
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <TextCell Text="{Binding}" />
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+
+        <ListView Grid.Row="1" Grid.Column="1" ItemsSource="{x:Binding App.Journal.cs}"
+            Header="{Binding .}"
+            Footer="{Binding .}">
+            <ListView.HeaderTemplate>
+                <DataTemplate>
+                    <StackLayout BackgroundColor="DarkBlue">
+                        <Label Margin="0,0,90,0"
+                               Text="Number of Entries"
+                               TextColor="White"
+                               FontSize="10" />
+                    </StackLayout>
+                </DataTemplate>
+            </ListView.HeaderTemplate>
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <TextCell Text="{Binding}" />
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+
+        <ListView Grid.Row="1" Grid.Column="2" ItemsSource="{x:Binding App.Journal.cs}"
+    Header="{Binding .}"
+    Footer="{Binding .}">
+            <ListView.HeaderTemplate>
+                <DataTemplate>
+                    <StackLayout BackgroundColor="DarkBlue">
+                        <Label Margin="0,0,140,0"
+                       Text="Options"
+                       TextColor="White"
+                       FontSize="10" />
+                    </StackLayout>
+                </DataTemplate>
+            </ListView.HeaderTemplate>
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <TextCell Text="{Binding}" />
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    
+    </Grid>
 
 </ContentPage>
